@@ -12,3 +12,15 @@ p {
 p:empty {
   visibility: hidden;
 }
+
+button {
+  margin-top: 15px;
+  background-color: rgb(57, 142, 67);
+  color: white;
+  border: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 100%;
+  font-size: 1rem;
+  cursor: pointer;
+}

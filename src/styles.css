@@ -16,6 +16,12 @@ main {
   padding: 18px;
 }
 
+@media (max-width: 500px) {
+  main {
+    margin: 10px auto 5px auto;
+  }
+}
+
 section {
   max-width: 400px;
   background-color: rgb(236, 235, 235);
@@ -50,14 +56,4 @@ input {
 input {
   margin-bottom: 10px;
   margin-top: 5px;
-}
-
-button {
-  margin-top: 15px;
-  background-color: rgb(57, 142, 67);
-  color: white;
-  border: none;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  width: 100%;
 }

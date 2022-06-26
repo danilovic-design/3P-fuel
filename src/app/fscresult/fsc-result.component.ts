@@ -12,4 +12,8 @@ export class FscResultComponent {
   @Input('newFuelPrice') newFuelPrice: any;
   @Input('oldFuelPrice') oldFuelPrice: any;
   @Input('FSCinEuro') FSCinEuro: any;
+
+  reloadPage() {
+    window.location.href = '/';
+  }
 }
