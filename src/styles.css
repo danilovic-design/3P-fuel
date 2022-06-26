@@ -1,1 +1,63 @@
 /* You can add global styles to this file, and also import other style files */
+
+body,
+html {
+  padding: 0;
+  margin: 0;
+  background-color: white;
+  height: 100vh;
+  font-family: sans-serif;
+}
+
+main {
+  max-width: 400px;
+  background-color: rgb(236, 235, 235);
+  margin: 4vh auto 2vh auto;
+  padding: 18px;
+}
+
+section {
+  max-width: 400px;
+  background-color: rgb(236, 235, 235);
+  margin: 0 auto;
+  padding: 18px;
+}
+
+section h4 {
+  text-align: center;
+}
+
+h2 {
+  margin-top: 0;
+  color: rgb(21, 38, 23);
+}
+
+label,
+input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+label {
+  font-size: 0.9rem;
+}
+
+input {
+  padding: 8px 5px;
+  font-size: 1rem;
+}
+
+input {
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+button {
+  margin-top: 15px;
+  background-color: rgb(57, 142, 67);
+  color: white;
+  border: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 100%;
+}

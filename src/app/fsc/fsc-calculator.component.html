@@ -1,0 +1,25 @@
+<main>
+  <h2>Üzemanyag-felár számítás</h2>
+  <p>{{ inputErrors[0] }}</p>
+  <form (submit)="startCalculation($event)">
+    <label>Régi üzemanyagár</label>
+    <input [(ngModel)]="oldFuelPrice" name="oldFuel" required />
+    <label>Jelenlegi üzemanyagár</label>
+    <input [(ngModel)]="newFuelPrice" name="currentFuel" required />
+    <label>Távolság</label>
+    <input [(ngModel)]="distance" name="distance" required />
+    <label>HUF/EUR árfolyam</label>
+    <input [(ngModel)]="currency" name="currency" required [value]="currency" />
+    <button>Számolás</button>
+  </form>
+</main>
+
+<fsc-result
+  *ngIf="showResult"
+  [oldFuelPrice]="oldFuelPrice"
+  [newFuelPrice]="newFuelPrice"
+  [FSC]="FSC"
+  [kilometer]="distance"
+  [roundedUpKilometer]="roundedUpKilometer"
+  [FSCinEuro]="FSCinEuro"
+></fsc-result>
