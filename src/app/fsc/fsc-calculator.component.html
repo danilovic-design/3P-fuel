@@ -3,13 +3,34 @@
   <p>{{ inputErrors[0] }}</p>
   <form (submit)="startCalculation($event)">
     <label>Régi üzemanyagár</label>
-    <input [(ngModel)]="oldFuelPrice" name="oldFuel" required />
+    <input
+      [(ngModel)]="oldFuelPrice"
+      (ngModelChange)="resetShowResult()"
+      name="oldFuel"
+      required
+    />
     <label>Jelenlegi üzemanyagár</label>
-    <input [(ngModel)]="newFuelPrice" name="currentFuel" required />
+    <input
+      [(ngModel)]="newFuelPrice"
+      (ngModelChange)="resetShowResult()"
+      name="currentFuel"
+      required
+    />
     <label>Távolság</label>
-    <input [(ngModel)]="distance" name="distance" required />
+    <input
+      [(ngModel)]="distance"
+      (ngModelChange)="resetShowResult()"
+      name="distance"
+      required
+    />
     <label>HUF/EUR árfolyam</label>
-    <input [(ngModel)]="currency" name="currency" required [value]="currency" />
+    <input
+      [(ngModel)]="currency"
+      name="currency"
+      (ngModelChange)="resetShowResult()"
+      required
+      [value]="currency"
+    />
     <button>Számolás</button>
   </form>
 </main>

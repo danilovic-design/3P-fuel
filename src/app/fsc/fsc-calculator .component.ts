@@ -78,7 +78,12 @@ export class FscCalculatorComponent implements OnInit {
     }
   }
 
+  resetShowResult() {
+    this.showResult = false;
+  }
+
   ngOnInit() {
+    this.showResult = false;
     this.route.queryParams.subscribe((params) => {
       if (params['oldFuel'] && !isNaN(params['oldFuel'])) {
         this.oldFuelPrice = parseInt(params['oldFuel']);
