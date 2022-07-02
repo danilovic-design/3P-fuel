@@ -1,0 +1,46 @@
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+p {
+  text-align: center;
+  background-color: rgb(255, 132, 132);
+  padding: 4px;
+}
+
+p:empty {
+  visibility: hidden;
+}
+
+button {
+  margin-top: 15px;
+  background-color: rgb(57, 142, 67);
+  color: white;
+  border: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 100%;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+label,
+input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+label {
+  font-size: 0.9rem;
+}
+
+input {
+  padding: 8px 5px;
+  font-size: 1rem;
+}
+
+input {
+  margin-bottom: 10px;
+  margin-top: 5px;
+}

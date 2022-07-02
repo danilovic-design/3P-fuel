@@ -1,0 +1,55 @@
+<main>
+  <h2>FTL-díjszámítás</h2>
+  <p></p>
+  <form (submit)="onButtonPush()">
+    <div>
+      <label for="currentFuel">Jelenlegi üzemanyagár</label>
+      <input
+        [(ngModel)]="newFuel"
+        name="currentFuel"
+        id="currentFuel"
+        (ngModelChange)="resetShowResult()"
+        required
+      />
+      <label for="hungaryPostcode">Magyar irányítószám</label>
+      <input
+        name="hungaryPostcode"
+        id="hungaryPostcode"
+        [(ngModel)]="hungaryPostcode"
+        (ngModelChange)="resetShowResult()"
+        required
+      />
+      <label for="swedenPostcode">Svéd irányítószám</label>
+      <input
+        name="swedenPostcode"
+        id="swedenPostcode"
+        [(ngModel)]="swedenPostcode"
+        (ngModelChange)="resetShowResult()"
+        required
+      />
+      <label for="currency">HUF/EUR árfolyam</label>
+      <input name="currency" id="currency" required [(ngModel)]="currency" />
+      <label for="ferryPrice">Ystad-Swinoujscie komp</label>
+      <input
+        name="ferryPrice"
+        id="ferryPrice"
+        required
+        [(ngModel)]="ferryPrice"
+        (ngModelChange)="resetShowResult()"
+      />
+    </div>
+    <button type="submit">Számolás</button>
+  </form>
+</main>
+
+<section *ngIf="showResult">
+  <h5>A számítás eredménye</h5>
+  <div>Távolság: {{ ftlPrice.getExportDistance() }}km</div>
+  <div>
+    {{ ftlPrice.oldFuel }}Ft-os üzemanyagárhoz viszonyítva az Üzemanyag-felár
+    {{ ftlPrice.getExportFsc().FSC }}Ft, ami euróban
+    {{ ftlPrice.getExportFsc().FSCinEuro }}€
+  </div>
+  <p>Export: {{ ftlPrice.getExport() }}</p>
+  <p>Import: {{ ftlPrice.getImport() }}</p>
+</section>

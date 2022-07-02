@@ -1,0 +1,9 @@
+div {
+  height: 30px;
+  background-color: gray;
+  padding: 4px;
+}
+
+div > a > img {
+  height: 28px;
+}
