@@ -13,6 +13,7 @@ import { FtlPrice } from '../ftl-price/ftl-price.module';
 })
 export class FtlPricelist implements OnInit {
   newFuel: number = 480;
+  inputErrors: string[] = [];
   ferryPrice: number = 310;
   hungaryPostcode: string = '1230';
   swedenPostcode: string = '90000';
@@ -36,16 +37,54 @@ export class FtlPricelist implements OnInit {
   }
 
   onButtonPush() {
-    console.log('button.push');
-    this.ftlPrice = new FtlPrice(
-      this.swedenPostcode,
-      this.hungaryPostcode,
-      this.newFuel,
-      this.currency,
-      this.ferryPrice
-    );
-    this.showResult = true;
+    this.validateInputs();
+    if (this.inputErrors.length === 0) {
+      this.ftlPrice = new FtlPrice(
+        this.swedenPostcode,
+        this.hungaryPostcode,
+        this.newFuel,
+        this.currency,
+        this.ferryPrice
+      );
+      this.showResult = true;
+    }
   }
+
+  validateInputs = () => {
+    this.inputErrors = [];
+
+    if (isNaN(this.newFuel)) {
+      this.inputErrors.push('Az üzemanyagár értéke csak szám lehet!');
+    }
+
+    if (isNaN(this.currency)) {
+      this.inputErrors.push('Az árfolyam értéke csak szám lehet!');
+    }
+
+    if (isNaN(this.ferryPrice)) {
+      this.inputErrors.push('A kompdíj értéke csak szám lehet!');
+    }
+
+    if (isNaN(parseInt(this.swedenPostcode))) {
+      this.inputErrors.push('A svéd irányítószám 5 számból állhat');
+    }
+
+    if (isNaN(parseInt(this.hungaryPostcode))) {
+      this.inputErrors.push('A magyar irányítószám 5 számból állhat');
+    }
+
+    if (this.swedenPostcode.length > 5 || this.swedenPostcode.length === 0) {
+      this.inputErrors.push('A svéd irányítószám 5 számból állhat');
+    }
+
+    if (this.hungaryPostcode.length > 4 || this.hungaryPostcode.length === 0) {
+      this.inputErrors.push('A magyar irányítószám 4 számból állhat');
+    }
+
+    if (this.currency == 0) {
+      this.inputErrors.push('Az árfolyam értéke nem lehet nulla!');
+    }
+  };
 }
 
 /*

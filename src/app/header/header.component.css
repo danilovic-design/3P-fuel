@@ -1,9 +1,8 @@
 div {
-  height: 30px;
-  background-color: gray;
-  padding: 4px;
+  background-color: white;
+  padding: 6px;
 }
 
 div > a > img {
-  height: 28px;
+  height: 32px;
 }
