@@ -12,12 +12,13 @@ import { FtlPrice } from '../ftl-price/ftl-price.module';
   styleUrls: ['./ftl-pricelist.component.css'],
 })
 export class FtlPricelist implements OnInit {
-  newFuel: number = 480;
+  newFuel: number = 810;
   inputErrors: string[] = [];
-  ferryPrice: number = 310;
+  inputWarnings: string[] = [];
+  ferryPrice: number = 370;
   hungaryPostcode: string = '1230';
-  swedenPostcode: string = '90000';
-  currency: number = 360;
+  swedenPostcode: string = '10000';
+  currency: number = 400;
   ftlPrice: FtlPrice = new FtlPrice(
     this.swedenPostcode,
     this.hungaryPostcode,
@@ -32,13 +33,15 @@ export class FtlPricelist implements OnInit {
     this.showResult = false;
   }
 
-  ngOnInit() {
-    console.log('inited');
-  }
+  ngOnInit() {}
 
   onButtonPush() {
     this.validateInputs();
-    if (this.inputErrors.length === 0) {
+    this.getInputWarnings();
+    if (
+      this.inputErrors.length === 0 &&
+      this.swedenPostcode.charAt(0) !== '6'
+    ) {
       this.ftlPrice = new FtlPrice(
         this.swedenPostcode,
         this.hungaryPostcode,
@@ -49,6 +52,25 @@ export class FtlPricelist implements OnInit {
       this.showResult = true;
     }
   }
+
+  getInputWarnings = () => {
+    this.inputWarnings = [];
+    if (this.swedenPostcode.startsWith('62')) {
+      this.inputWarnings.push(
+        'Gotlandi szállításainkra kérje egyedi ajánlatunkat'
+      );
+    }
+    if (this.swedenPostcode.charAt(0) === '8') {
+      this.inputWarnings.push(
+        'Nagy elterülésű terület, érdemes egyéni ajánlat kiadása.'
+      );
+    }
+    if (this.swedenPostcode.charAt(0) === '9') {
+      this.inputWarnings.push(
+        'Nagy kiterülésű terület, érdemes egyéni ajánlat kiadása.'
+      );
+    }
+  };
 
   validateInputs = () => {
     this.inputErrors = [];

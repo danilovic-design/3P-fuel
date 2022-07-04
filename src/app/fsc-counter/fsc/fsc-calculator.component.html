@@ -2,36 +2,42 @@
   <h2>Üzemanyag-felár számítás</h2>
   <p>{{ inputErrors[0] }}</p>
   <form (submit)="startCalculation($event)">
-    <label>Régi üzemanyagár</label>
-    <input
-      [(ngModel)]="oldFuelPrice"
-      (ngModelChange)="resetShowResult()"
-      name="oldFuel"
-      required
-    />
-    <label>Jelenlegi üzemanyagár</label>
-    <input
-      [(ngModel)]="newFuelPrice"
-      (ngModelChange)="resetShowResult()"
-      name="currentFuel"
-      required
-    />
-    <label>Távolság</label>
-    <input
-      [(ngModel)]="distance"
-      (ngModelChange)="resetShowResult()"
-      name="distance"
-      required
-    />
-    <label>HUF/EUR árfolyam</label>
-    <input
-      [(ngModel)]="currency"
-      name="currency"
-      (ngModelChange)="resetShowResult()"
-      required
-      [value]="currency"
-    />
-    <button>Számolás</button>
+    <div>
+      <label for="oldFuel">Régi üzemanyagár (Ft)</label>
+      <input
+        [(ngModel)]="oldFuelPrice"
+        (ngModelChange)="resetShowResult()"
+        name="oldFuel"
+        id="oldFuel"
+        required
+      />
+      <label for="currentFuel">Jelenlegi üzemanyagár (Ft)</label>
+      <input
+        [(ngModel)]="newFuelPrice"
+        (ngModelChange)="resetShowResult()"
+        name="currentFuel"
+        id="currentFuel"
+        required
+      />
+      <label for="distance">Távolság (km)</label>
+      <input
+        [(ngModel)]="distance"
+        (ngModelChange)="resetShowResult()"
+        name="distance"
+        id="distance"
+        required
+      />
+      <label for="currency">HUF/EUR árfolyam</label>
+      <input
+        [(ngModel)]="currency"
+        name="currency"
+        id="currency"
+        (ngModelChange)="resetShowResult()"
+        required
+        [value]="currency"
+      />
+    </div>
+    <button type="submit">Számolás</button>
   </form>
 </main>
 

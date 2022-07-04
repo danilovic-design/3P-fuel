@@ -22,7 +22,6 @@ export class FscCalculatorComponent implements OnInit {
 
   calculateFuelPrice = () => {
     //this.showResult = true;
-    console.log('CALC with', this.currency);
     this.FSC =
       (this.newFuelPrice - this.oldFuelPrice) *
       30 *
@@ -61,7 +60,6 @@ export class FscCalculatorComponent implements OnInit {
 
   startCalculation(e: Event) {
     e.preventDefault();
-    console.log('calculation has started');
 
     this.validateInputs();
 

@@ -10,7 +10,7 @@ p {
 }
 
 p:empty {
-  visibility: hidden;
+  display: none;
 }
 
 button {
@@ -23,14 +23,4 @@ button {
   width: 100%;
   font-size: 1rem;
   cursor: pointer;
-}
-
-form > div {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  row-gap: 5px;
-}
-
-label {
-  font-size: 0.9rem;
 }

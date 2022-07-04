@@ -53,9 +53,16 @@ export class FtlPrice {
     return this.getSwedenKilometers() + this.getHungaryKilometers() + 700;
   }
 
+  public getFuelDifference() {
+    if (this.newFuel >= this.oldFuel) {
+      return this.newFuel - this.oldFuel;
+    }
+    return 0;
+  }
+
   public getExportFsc() {
     let FSC: number =
-      (this.newFuel - this.oldFuel) * 30 * (this.getExportDistance() / 100);
+      this.getFuelDifference() * 30 * (this.getExportDistance() / 100);
     let FSCinEuro: number = Math.ceil(FSC / this.currency / 10) * 10;
     return { FSC, FSCinEuro };
   }
@@ -70,7 +77,7 @@ export class FtlPrice {
         this.perKilometerPrice +
       this.ferry * 2 -
       importPrice +
-      FSC +
+      FSC * 1.2 +
       this.commissionAtLeast;
     return Math.round(fullExportPrice / 50) * 50;
   }

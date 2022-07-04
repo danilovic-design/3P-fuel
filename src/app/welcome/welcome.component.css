@@ -1,0 +1,17 @@
+section {
+  text-align: center;
+}
+
+a {
+  width: 80%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: rgb(57, 142, 67);
+  color: white;
+  padding: 15px;
+  border-radius: 15px;
+  display: block;
+  text-decoration: none;
+}

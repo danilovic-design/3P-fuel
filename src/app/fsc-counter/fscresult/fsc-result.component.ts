@@ -14,6 +14,6 @@ export class FscResultComponent {
   @Input('FSCinEuro') FSCinEuro: any;
 
   reloadPage() {
-    window.location.href = '/';
+    window.location.href = '/fuel';
   }
 }

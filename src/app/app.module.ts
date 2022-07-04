@@ -9,6 +9,7 @@ import { FscResultComponent } from './fsc-counter/fscresult/fsc-result.component
 import { FtlPricelist } from './ftl-pricelist/ftl-pricelist.component';
 import { HeaderComponent } from './header/header.component';
 import { FtlPriceresultComponent } from './ftl-pricelist/ftl-priceresult/ftl-priceresult.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 const appRoutes: Routes = [
   {
@@ -22,7 +23,7 @@ const appRoutes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/fuel',
+    component: WelcomeComponent,
   },
 ];
 
@@ -34,6 +35,7 @@ const appRoutes: Routes = [
     FtlPricelist,
     HeaderComponent,
     FtlPriceresultComponent,
+    WelcomeComponent,
   ],
   imports: [BrowserModule, RouterModule.forRoot(appRoutes), FormsModule],
   providers: [],

@@ -1,9 +1,10 @@
 <main>
   <h2>FTL-díjszámítás</h2>
   <p>{{ inputErrors[0] }}</p>
+  <p>{{ inputWarnings[0] }}</p>
   <form (submit)="onButtonPush()">
     <div>
-      <label for="currentFuel">Jelenlegi üzemanyagár</label>
+      <label for="currentFuel">Jelenlegi üzemanyagár (Ft)</label>
       <input
         [(ngModel)]="newFuel"
         name="currentFuel"
@@ -11,25 +12,27 @@
         (ngModelChange)="resetShowResult()"
         required
       />
-      <label for="hungaryPostcode">Magyar irányítószám</label>
+      <label for="hungaryPostcode">Magyar irányítószám (xxxx)</label>
       <input
         name="hungaryPostcode"
         id="hungaryPostcode"
         [(ngModel)]="hungaryPostcode"
         (ngModelChange)="resetShowResult()"
+        maxlength="4"
         required
       />
-      <label for="swedenPostcode">Svéd irányítószám</label>
+      <label for="swedenPostcode">Svéd irányítószám (xxxxx)</label>
       <input
         name="swedenPostcode"
         id="swedenPostcode"
         [(ngModel)]="swedenPostcode"
         (ngModelChange)="resetShowResult()"
+        maxlength="5"
         required
       />
       <label for="currency">HUF/EUR árfolyam</label>
       <input name="currency" id="currency" required [(ngModel)]="currency" />
-      <label for="ferryPrice">Ystad-Swinoujscie komp</label>
+      <label for="ferryPrice">Ystad-Swinoujscie komp (€)</label>
       <input
         name="ferryPrice"
         id="ferryPrice"
@@ -42,7 +45,12 @@
   </form>
 </main>
 
-<section *ngIf="showResult">
+<ftl-priceresult
+  [showResult]="showResult"
+  [ftlPrice]="ftlPrice"
+></ftl-priceresult>
+
+<!--<section *ngIf="showResult">
   <h5>A számítás eredménye</h5>
   <div>Távolság: {{ ftlPrice.getExportDistance() }}km</div>
   <div>
@@ -52,4 +60,4 @@
   </div>
   <p>Export: {{ ftlPrice.getExport() }}</p>
   <p>Import: {{ ftlPrice.getImport() }}</p>
-</section>
+</section>-->

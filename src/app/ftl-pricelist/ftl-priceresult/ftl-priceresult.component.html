@@ -1,0 +1,18 @@
+<section *ngIf="showResult">
+  <h4>A számítás eredménye</h4>
+  <div class="start">
+    Távolság adott útirányon: {{ ftlPrice.getExportDistance() }}km
+    <small>(Átállás Gödről)</small>
+  </div>
+  <div class="start">
+    {{ ftlPrice.oldFuel }}Ft-os üzemanyagárhoz viszonyítva az Üzemanyag-felár
+    {{ ftlPrice.getExportFsc().FSC }}Ft, ami euróban
+    {{ ftlPrice.getExportFsc().FSCinEuro }}€
+  </div>
+  <p class="start">
+    Javasolt <i>export</i> fuvardíj:
+    <strong>{{ ftlPrice.getExport() }}€</strong>
+  </p>
+
+  <button (click)="reloadPage()">Újraszámol</button>
+</section>
