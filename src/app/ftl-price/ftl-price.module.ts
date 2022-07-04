@@ -79,7 +79,7 @@ export class FtlPrice {
       importPrice +
       FSC * 1.2 +
       this.commissionAtLeast;
-    return Math.round(fullExportPrice / 50) * 50;
+    return Math.ceil(fullExportPrice / 50) * 50;
   }
 
   getImport() {
